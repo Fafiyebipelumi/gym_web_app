@@ -3,6 +3,7 @@ import { Box, Stack } from '@mui/material';
 import Navbar from './components/Navbar';
 import './App.css';
 import Home from './pages/Home';
+import ExerciseDetail from './pages/ExerciseDetail';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        {/* <Route path='/exercise/:id' element={<ExerciseDetail />} /> */}
+        <Route path='/exercise/:id' element={<ExerciseDetail />} />
       </Routes>
     </Box>
   );
