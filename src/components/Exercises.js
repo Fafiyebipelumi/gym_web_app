@@ -4,7 +4,7 @@ import { Box, Stack, Typography } from '@mui/material';
 
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
-import Loader from './Loader';
+// import Loader from './Loader';
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -19,10 +19,10 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
             } else {
                 exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
             }
- 
+
             setExercises(exercisesData);
         };
- 
+
         fetchExercisesData();
     }, [bodyPart]);
 
@@ -37,7 +37,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         window.scrollTo({ top: 1800, behavior: 'smooth' });
     };
 
-    if (!currentExercises.length) return <div>Loading...</div>;
+    if (!currentExercises.length) return 'Loading...';
 
     return (
         <Box id="exercises" sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
@@ -56,7 +56,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
                         count={Math.ceil(exercises.length / exercisesPerPage)}
                         page={currentPage}
                         onChange={paginate}
-                        size="large" 
+                        size="large"
                     />
                 )}
             </Stack>
